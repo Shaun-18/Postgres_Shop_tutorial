@@ -100,3 +100,73 @@ SELECT * FROM customers;
 SELECT * FROM products;
 SELECT * FROM orders;
 SELECT * FROM order_items;
+
+
+SELECT 'customers' AS table_name, COUNT(*) AS record_count FROM customers
+UNION ALL
+SELECT 'products', COUNT(*) FROM products
+UNION ALL
+SELECT 'orders', COUNT(*) FROM orders
+UNION ALL
+SELECT 'order_items', COUNT(*) FROM order_items;
+
+SELECT first_name, last_name, email
+FROM customers;
+
+SELECT
+    product_name AS product,
+    price AS selling_price
+FROM products;
+
+SELECT product_name, price
+FROM products
+WHERE price > 100;
+
+SELECT product_name, price
+FROM products
+WHERE price < 300;
+
+SELECT product_name, price
+FROM products
+WHERE stock_quantity = 15;
+
+
+SELECT order_id
+FROM orders
+WHERE status ='PENDING' ;
+
+SELECT product_name, price, stock_quantity
+FROM products
+WHERE price > 10
+AND stock_quantity >= 2;
+
+SELECT product_name
+FROM products
+WHERE product_name LIKE '%Manjo%';
+
+SELECT product_name
+FROM products
+WHERE product_name ILIKE '%Funflower%';
+
+
+SELECT order_id, status
+FROM orders
+WHERE status IN ('PAID', 'SHIPPED');
+
+SELECT product_name, price
+FROM products
+WHERE price BETWEEN 100 AND 500;
+
+SELECT product_name, price
+FROM products
+ORDER BY price DESC;
+
+
+SELECT product_name, price
+FROM products
+ORDER BY product_name ASC;
+
+SELECT product_name, stock_quantity, price
+FROM products
+ORDER BY stock_quantity ASC, price DESC;
+
