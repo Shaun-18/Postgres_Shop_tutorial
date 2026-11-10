@@ -40,3 +40,18 @@ VALUES ('Sta Soft', 'Fabric softner',26.99, 36),
 
  SELECT 'products' AS table_name, COUNT(*) AS record_count FROM products
  SELECT * FROM products
+
+
+ CREATE TABLE orders (
+    order_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    customer_id INTEGER NOT NULL,
+    order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+    CONSTRAINT fk_orders_customer
+        FOREIGN KEY (customer_id)
+        REFERENCES customers(customer_id),
+    CONSTRAINT chk_orders_status
+        CHECK (status IN ('PENDING', 'PAID', 'SHIPPED', 'CANCELLED'))
+);
+
+SELECT * FROM orders
