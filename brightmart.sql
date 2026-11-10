@@ -77,3 +77,26 @@ CREATE TABLE order_items (
 
 SELECT * FROM order_items
 
+SELECT customer_id, first_name, last_name
+FROM customers
+ORDER BY customer_id;
+
+INSERT INTO orders (customer_id, status)
+VALUES
+    (1, 'PAID'),
+    (2, 'PENDING');
+
+
+SELECT order_id, customer_id, status FROM orders;
+SELECT product_id, product_name, price FROM products;
+
+INSERT INTO order_items (order_id, product_id, quantity, unit_price)
+VALUES
+    (1, 1, 2, 249.99),
+    (1, 3, 1, 99.50),
+    (2, 2, 1, 899.00);
+
+SELECT * FROM customers;
+SELECT * FROM products;
+SELECT * FROM orders;
+SELECT * FROM order_items;
