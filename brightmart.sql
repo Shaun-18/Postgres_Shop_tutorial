@@ -302,3 +302,9 @@ SELECT
 FROM order_items
 GROUP BY order_id
 HAVING SUM(quantity * unit_price) > 500;
+
+
+SELECT product_name, price
+FROM products
+ORDER BY price DESC
+LIMIT 5;
