@@ -214,3 +214,47 @@ FROM customers AS c
 LEFT JOIN orders AS o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id;
+
+
+SELECT product_id, product_name, price
+FROM products
+WHERE product_name = 'Clover';
+
+UPDATE products
+SET price = 109.50
+WHERE product_name = 'Clover';
+
+UPDATE products
+SET
+    stock_quantity = 45,
+    description = 'Coca Cola 2l'
+WHERE product_name = 'Coca Cola';
+
+
+ALTER TABLE customers
+ADD COLUMN city VARCHAR(80);
+
+
+ALTER TABLE customers
+RENAME COLUMN phone TO phone_number;
+
+ALTER TABLE customers
+ALTER COLUMN city TYPE VARCHAR(100);
+
+
+SELECT customer_id, first_name, last_name, email
+FROM customers
+WHERE email = 'sothoman49@gmail.com';
+
+DELETE FROM customers
+WHERE email = 'test@example.com';
+
+BEGIN;
+
+UPDATE products
+SET price = 119.50
+WHERE product_name = 'Sta Soft';
+
+SELECT product_name, price
+FROM products
+WHERE product_name = 'Sta Soft';
