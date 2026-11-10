@@ -294,3 +294,11 @@ INNER JOIN order_items AS oi
     ON o.order_id = oi.order_id
 GROUP BY c.customer_id, c.first_name, c.last_name
 ORDER BY total_spent DESC;
+
+
+SELECT
+    order_id,
+    SUM(quantity * unit_price) AS order_total
+FROM order_items
+GROUP BY order_id
+HAVING SUM(quantity * unit_price) > 500;
